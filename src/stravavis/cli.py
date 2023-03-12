@@ -36,6 +36,7 @@ def main():
         "--bbox", help="Shortcut for comma-separated LON_MIN,LAT_MIN,LON_MAX,LAT_MAX"
     )
     parser.add_argument("--alpha", default=0.4, help="Line transparency. 0 = Fully transparent, 1 = No transparency")
+    parser.add_argument("--no_background", dest='background', action='store_true', help="Set to False for transparent background.")
     parser.add_argument("--linewidth", default=0.4, help="Line width")
     parser.add_argument("--activities_path", help="Path to activities.csv from Strava bulk export zip")
     parser.add_argument("--year_min", help="The minimum year to use for the calendar heatmap.")
@@ -82,7 +83,7 @@ def main():
 
     print("Plotting facets...")
     outfile = f"{args.output_prefix}-facets.png"
-    plot_facets(df, output_file=outfile)
+    plot_facets(df, output_file=outfile, background=args.background)
     print(f"Saved to {outfile}")
 
     print("Plotting map...")

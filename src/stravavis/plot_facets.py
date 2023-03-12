@@ -2,8 +2,7 @@ import math
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def plot_facets(df, output_file = 'plot.png'):
-
+def plot_facets(df, output_file = 'plot.png', background = True):
     # Create a new figure
     plt.figure()
 
@@ -36,4 +35,4 @@ def plot_facets(df, output_file = 'plot.png'):
     p.set_titles(col_template = '', row_template = '')
     sns.despine(left = True, bottom = True)
     plt.subplots_adjust(left = 0.05, bottom = 0.05, right = 0.95, top = 0.95)
-    plt.savefig(output_file)
+    plt.savefig(output_file, transparent=background)
